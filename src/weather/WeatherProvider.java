@@ -7,7 +7,7 @@ public final class WeatherProvider {
   private String[] weather;
 
   private WeatherProvider() {
-    weather = new String[]{"rain", "fog", "sun", "snow"};
+    weather = new String[]{"fog", "rain", "snow", "sun"};
   }
 
   public static WeatherProvider getInstance() {

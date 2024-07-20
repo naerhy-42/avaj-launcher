@@ -1,8 +1,8 @@
 package tower;
 
-import java.util.List;
-import java.util.ArrayList;
 import aircraft.Flyable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Tower {
   private List<Flyable> observers;
