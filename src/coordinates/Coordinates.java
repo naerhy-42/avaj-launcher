@@ -22,4 +22,22 @@ public class Coordinates {
   public int getHeight() {
     return height;
   }
+
+  public void modifyLongitudeBy(int value) {
+    longitude += value;
+  }
+
+  public void modifyLatitudeBy(int value) {
+    latitude += value;
+  }
+
+  public void modifyHeightBy(int value) {
+    if (height + value > 100) {
+      height = 100;
+    } else if (height + value < 0) {
+      height = 0;
+    } else {
+      height += value;
+    }
+  }
 }
