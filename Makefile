@@ -5,18 +5,23 @@ BUILD_DIR = build
 
 SRC = $(wildcard $(SRC_DIR)/*/*.java)
 
+J = java
+JFLAGS = -cp $(BUILD_DIR)
 JC = javac
-JFLAGS = -d $(BUILD_DIR)
+JCFLAGS = -d $(BUILD_DIR)
 
 RM = rm -rf
 
 all: $(NAME)
 
 $(NAME): $(BUILD_DIR)
-	$(JC) $(JFLAGS) $(SRC)
+	$(JC) $(JCFLAGS) $(SRC)
 
 $(BUILD_DIR):
 	mkdir -p $@
+
+run:
+	$(J) $(JFLAGS) simulator.Simulator
 
 clean:
 	$(RM) $(BUILD_DIR)
