@@ -5,9 +5,7 @@ import tower.WeatherTower;
 public abstract class Flyable {
   protected WeatherTower weatherTower;
 
-  public abstract long getId();
-
-  public abstract String getName();
+  public abstract String getIdentity();
 
   public abstract void updateConditions();
 

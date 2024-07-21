@@ -11,16 +11,16 @@ public class Helicopter extends Aircraft {
   public void updateConditions() {
     String currentWeather = weatherTower.getWeather(coordinates);
     if (currentWeather == "fog") {
-      System.out.printf("%s#%s(%d): it's foggy!%n", "Helicopter", name, id);
+      System.out.printf("%s: it's foggy!%n", getIdentity());
       coordinates.modifyLongitudeBy(1);
     } else if (currentWeather == "rain") {
-      System.out.printf("%s#%s(%d): it's raining!%n", "Helicopter", name, id);
+      System.out.printf("%s: it's raining!%n", getIdentity());
       coordinates.modifyLongitudeBy(5);
     } else if (currentWeather == "snow") {
-      System.out.printf("%s#%s(%d): it's snowing!%n", "Helicopter", name, id);
+      System.out.printf("%s: it's snowing!%n", getIdentity());
       coordinates.modifyHeightBy(-12);
     } else {
-      System.out.printf("%s#%s(%d): it's sunny!%n", "Helicopter", name, id);
+      System.out.printf("%s: it's sunny!%n", getIdentity());
       coordinates.modifyLongitudeBy(10);
       coordinates.modifyHeightBy(2);
     }

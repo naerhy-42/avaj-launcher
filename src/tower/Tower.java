@@ -15,12 +15,12 @@ public class Tower {
 
   public void register(Flyable flyable) {
     observers.add(flyable);
-    System.out.printf("Tower says: %s#%s(%d) registered to weather tower.%n", flyable.getClass().getSimpleName(), flyable.getName(), flyable.getId());
+    System.out.printf("Tower says: %s registered to weather tower.%n", flyable.getIdentity());
   }
 
   public void unregister(Flyable flyable) {
     observersToRemove.add(flyable);
-    System.out.printf("Tower says: %s#%s(%d) unregistered from weather tower.%n", flyable.getClass().getSimpleName(), flyable.getName(), flyable.getId());
+    System.out.printf("Tower says: %s unregistered from weather tower.%n", flyable.getIdentity());
   }
 
   protected void conditionChanged() {
