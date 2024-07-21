@@ -14,9 +14,19 @@ public class Aircraft extends Flyable {
   }
 
   @Override
+  public long getId() {
+    return id;
+  }
+
+  @Override
+  public String getName() {
+    return name;
+  }
+
+  @Override
   public void updateConditions() {
     if (coordinates.getHeight() == 0) {
-      System.out.printf("%s#%s(%d): I am landing!", "Helicopter%n", name, id);
+      System.out.printf("%s#%s(%d): I am landing!%n", getClass().getSimpleName(), name, id);
       weatherTower.unregister(this);
     }
   }
