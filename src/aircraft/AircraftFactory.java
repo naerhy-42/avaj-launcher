@@ -16,11 +16,11 @@ public final class AircraftFactory {
   public Flyable newAircraft(String type, String name, Coordinates coordinates) {
     Flyable flyable;
     if (type == "Baloon") {
-      flyable = new Helicopter(currentAircraftId, name, coordinates);
+      flyable = new Baloon(currentAircraftId, name, coordinates);
     } else if (type == "Helicopter") {
       flyable = new Helicopter(currentAircraftId, name, coordinates);
     } else {
-      flyable = new Helicopter(currentAircraftId, name, coordinates);
+      flyable = new JetPlane(currentAircraftId, name, coordinates);
     }
     currentAircraftId++;
     return flyable;
