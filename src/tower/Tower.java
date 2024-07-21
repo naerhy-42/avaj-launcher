@@ -1,6 +1,7 @@
 package tower;
 
 import aircraft.Flyable;
+import file.FileHandler;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,12 +16,12 @@ public class Tower {
 
   public void register(Flyable flyable) {
     observers.add(flyable);
-    System.out.printf("Tower says: %s registered to weather tower.%n", flyable.getIdentity());
+    FileHandler.getInstance().addToOutput(String.format("Tower says: %s registered to weather tower.", flyable.getIdentity()));
   }
 
   public void unregister(Flyable flyable) {
     observersToRemove.add(flyable);
-    System.out.printf("Tower says: %s unregistered from weather tower.%n", flyable.getIdentity());
+    FileHandler.getInstance().addToOutput(String.format("Tower says: %s unregistered from weather tower.", flyable.getIdentity()));
   }
 
   protected void conditionChanged() {

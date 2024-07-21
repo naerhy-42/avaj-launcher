@@ -1,6 +1,7 @@
 package aircraft;
 
 import coordinates.Coordinates;
+import file.FileHandler;
 
 public class JetPlane extends Aircraft {
   public JetPlane(long id, String name, Coordinates coordinates) {
@@ -11,16 +12,16 @@ public class JetPlane extends Aircraft {
   public void updateConditions() {
     String currentWeather = weatherTower.getWeather(coordinates);
     if (currentWeather == "fog") {
-      System.out.printf("%s: it's foggy!%n", getIdentity());
+      FileHandler.getInstance().addToOutput(String.format("%s: it's foggy!", getIdentity()));
       coordinates.modifyLatitudeBy(1);
     } else if (currentWeather == "rain") {
-      System.out.printf("%s: it's raining!%n", getIdentity());
+      FileHandler.getInstance().addToOutput(String.format("%s: it's raining!", getIdentity()));
       coordinates.modifyLatitudeBy(5);
     } else if (currentWeather == "snow") {
-      System.out.printf("%s: it's snowing!%n", getIdentity());
+      FileHandler.getInstance().addToOutput(String.format("%s: it's snowing!", getIdentity()));
       coordinates.modifyHeightBy(-7);
     } else {
-      System.out.printf("%s: it's sunny!%n", getIdentity());
+      FileHandler.getInstance().addToOutput(String.format("%s: it's sunny!", getIdentity()));
       coordinates.modifyLatitudeBy(10);
       coordinates.modifyHeightBy(2);
     }

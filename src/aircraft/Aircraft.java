@@ -1,6 +1,7 @@
 package aircraft;
 
 import coordinates.Coordinates;
+import file.FileHandler;
 
 public class Aircraft extends Flyable {
   protected long id;
@@ -21,7 +22,7 @@ public class Aircraft extends Flyable {
   @Override
   public void updateConditions() {
     if (coordinates.getHeight() == 0) {
-      System.out.printf("%s: I am landing!%n", getIdentity());
+      FileHandler.getInstance().addToOutput(String.format("%s: I am landing!", getIdentity()));
       weatherTower.unregister(this);
     }
   }
