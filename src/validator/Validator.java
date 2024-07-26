@@ -28,10 +28,13 @@ public class Validator {
       longitude = Integer.parseInt(info[2]);
       latitude = Integer.parseInt(info[3]);
       height = Integer.parseInt(info[4]);
+      if (height > 100) {
+        height = 100;
+      }
       if (!type.matches("Baloon|Helicopter|JetPlane")) {
         throw new InvalidFileInformation("Type of the aircraft is not valid");
       }
-      if (longitude < 0 || latitude < 0 || (height < 0 || height > 100)) {
+      if (longitude < 0 || latitude < 0 || height < 0) {
         throw new InvalidFileInformation("One of the coordinates value is not valid");
       }
     }
