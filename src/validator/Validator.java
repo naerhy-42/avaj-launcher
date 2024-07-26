@@ -1,5 +1,6 @@
 package validator;
 
+import exceptions.InvalidFileInformation;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -17,21 +18,21 @@ public class Validator {
     private int latitude;
     private int height;
 
-    AircraftInfo(String line) {
+    AircraftInfo(String line) throws InvalidFileInformation {
       String[] info = line.split(" ");
       if (info.length != 5) {
-        // throw
+        throw new InvalidFileInformation("One of the aircraft line is invalid");
       }
       type = info[0];
       name = info[1];
       longitude = Integer.parseInt(info[2]);
       latitude = Integer.parseInt(info[3]);
       height = Integer.parseInt(info[4]);
-      if (type.matches("Baloon|Helicopter|JetPlane")) {
-        // throw
+      if (!type.matches("Baloon|Helicopter|JetPlane")) {
+        throw new InvalidFileInformation("Type of the aircraft is not valid");
       }
       if (longitude < 0 || latitude < 0 || (height < 0 || height > 100)) {
-        // throw
+        throw new InvalidFileInformation("One of the coordinates value is not valid");
       }
     }
 
@@ -62,7 +63,7 @@ public class Validator {
   }
 
 
-  public void parseFile(String file) throws FileNotFoundException {
+  public void parseFile(String file) throws FileNotFoundException, InvalidFileInformation {
     File f = new File(file);
     try (Scanner sc = new Scanner(f)) {
       boolean firstLine = true;
@@ -70,7 +71,7 @@ public class Validator {
         if (firstLine) {
           iterations = Integer.parseInt(sc.nextLine());
           if (iterations < 1) {
-            // throw
+            throw new InvalidFileInformation("Iteration number has to be a positive integer");
           }
           firstLine = false;
         } else {
@@ -78,7 +79,7 @@ public class Validator {
         }
       }
       if (iterations == -1 || aircraftInfo.isEmpty()) {
-        // throw
+        throw new InvalidFileInformation();
       }
     }
   }
