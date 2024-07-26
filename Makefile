@@ -21,7 +21,7 @@ $(BUILD_DIR):
 	mkdir -p $@
 
 run:
-	$(J) $(JFLAGS) simulator.Simulator
+	$(J) $(JFLAGS) simulator.Simulator scenarios/1.txt
 
 clean:
 	$(RM) $(BUILD_DIR)
