@@ -17,7 +17,9 @@ public class Simulator {
       validator.parseFile(args[0]);
       WeatherTower weatherTower = new WeatherTower();
       for (Validator.AircraftInfo ai : validator.getAircraftInfo()) {
-        AircraftFactory.getInstance().newAircraft(ai.getType(), ai.getName(), new Coordinates(ai.getLongitude(), ai.getLatitude(), ai.getHeight())).registerTower(weatherTower);
+        Coordinates c = new Coordinates(ai.getLongitude(), ai.getLatitude(), ai.getHeight());
+        AircraftFactory.getInstance().newAircraft(ai.getType(), ai.getName(), c)
+            .registerTower(weatherTower);
       }
       for (int i = 0; i < validator.getIterations(); i++) {
         weatherTower.changeWeather();

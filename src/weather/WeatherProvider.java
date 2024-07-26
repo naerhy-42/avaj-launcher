@@ -3,7 +3,7 @@ package weather;
 import coordinates.Coordinates;
 
 public final class WeatherProvider {
-  private static WeatherProvider instance; // default uninitialized value = null
+  private static WeatherProvider instance;
   private String[] weather;
 
   private WeatherProvider() {

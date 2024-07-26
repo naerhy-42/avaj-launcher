@@ -24,16 +24,10 @@ public final class FileHandler {
     output.add(str);
   }
 
-  public void writeOutputToFile() {
-    try {
-      FileWriter writer = new FileWriter("simulation.txt");
+  public void writeOutputToFile() throws IOException {
+    try (FileWriter writer = new FileWriter("simulation.txt")) {
       String o = String.join("\n", output) + "\n"; // add newline at the end
       writer.write(o);
-      writer.close(); // TODO: declare before try and close in finally block [?]
-    } catch (Exception e) {
-      if (e instanceof IOException) {
-        System.out.println("Error: cannot write output to simulation.txt");
-      }
     }
   }
 }

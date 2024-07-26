@@ -3,7 +3,7 @@ package aircraft;
 import coordinates.Coordinates;
 
 public final class AircraftFactory {
-  private static AircraftFactory instance; // default uninitialized value = null
+  private static AircraftFactory instance;
   private long currentAircraftId = 0;
 
   public static AircraftFactory getInstance() {

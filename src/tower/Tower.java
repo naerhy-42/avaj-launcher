@@ -18,12 +18,16 @@ public class Tower {
 
   public void register(Flyable flyable) {
     observers.add(flyable);
-    fileHandler.addToOutput(String.format("Tower says: %s registered to weather tower.", flyable.getIdentity()));
+    fileHandler.addToOutput(
+      String.format("Tower says: %s registered to weather tower.", flyable.getIdentity())
+    );
   }
 
   public void unregister(Flyable flyable) {
     observersToRemove.add(flyable);
-    fileHandler.addToOutput(String.format("Tower says: %s unregistered from weather tower.", flyable.getIdentity()));
+    fileHandler.addToOutput(
+      String.format("Tower says: %s unregistered from weather tower.", flyable.getIdentity())
+    );
   }
 
   protected void conditionChanged() {

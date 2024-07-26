@@ -18,7 +18,7 @@ public class Validator {
     private int latitude;
     private int height;
 
-    AircraftInfo(String line) throws InvalidFileInformation {
+    private AircraftInfo(String line) throws InvalidFileInformation {
       String[] info = line.split(" ");
       if (info.length != 5) {
         throw new InvalidFileInformation("One of the aircraft line is invalid");
@@ -64,7 +64,6 @@ public class Validator {
     iterations = -1;
     aircraftInfo = new ArrayList<AircraftInfo>();
   }
-
 
   public void parseFile(String file) throws FileNotFoundException, InvalidFileInformation {
     File f = new File(file);
