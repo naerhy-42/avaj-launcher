@@ -15,8 +15,8 @@ public final class AircraftFactory {
 
   public Flyable newAircraft(String type, String name, Coordinates coordinates) {
     Flyable flyable;
-    if (type.equals("Baloon")) {
-      flyable = new Baloon(currentAircraftId, name, coordinates);
+    if (type.equals("Balloon")) {
+      flyable = new Balloon(currentAircraftId, name, coordinates);
     } else if (type.equals("Helicopter")) {
       flyable = new Helicopter(currentAircraftId, name, coordinates);
     } else {

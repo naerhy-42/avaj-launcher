@@ -2,8 +2,8 @@ package aircraft;
 
 import coordinates.Coordinates;
 
-public class Baloon extends Aircraft {
-  public Baloon(long id, String name, Coordinates coordinates) {
+public class Balloon extends Aircraft {
+  public Balloon(long id, String name, Coordinates coordinates) {
     super(id, name, coordinates);
   }
 

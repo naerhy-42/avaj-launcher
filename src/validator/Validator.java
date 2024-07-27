@@ -31,7 +31,7 @@ public class Validator {
       if (height > 100) {
         height = 100;
       }
-      if (!type.matches("Baloon|Helicopter|JetPlane")) {
+      if (!type.matches("Balloon|Helicopter|JetPlane")) {
         throw new InvalidFileInformation("Type of the aircraft is not valid");
       }
       if (longitude < 0 || latitude < 0 || height < 0) {
