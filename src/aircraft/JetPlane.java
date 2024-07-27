@@ -11,16 +11,16 @@ public class JetPlane extends Aircraft {
   public void updateConditions() {
     String currentWeather = weatherTower.getWeather(coordinates);
     if (currentWeather == "fog") {
-      fileHandler.addToOutput(String.format("%s: it's foggy!", getIdentity()));
+      fileHandler.addToOutput(String.format("%s: flying through foggy areas.", getIdentity()));
       coordinates.modifyLatitudeBy(1);
     } else if (currentWeather == "rain") {
-      fileHandler.addToOutput(String.format("%s: it's raining!", getIdentity()));
+      fileHandler.addToOutput(String.format("%s: experiencing light rain now, everything's under control.", getIdentity()));
       coordinates.modifyLatitudeBy(5);
     } else if (currentWeather == "snow") {
-      fileHandler.addToOutput(String.format("%s: it's snowing!", getIdentity()));
+      fileHandler.addToOutput(String.format("%s: snow may cause slight turbulence, stay seated.", getIdentity()));
       coordinates.modifyHeightBy(-7);
     } else {
-      fileHandler.addToOutput(String.format("%s: it's sunny!", getIdentity()));
+      fileHandler.addToOutput(String.format("%s: cruising with clear skies and sunny views.", getIdentity()));
       coordinates.modifyLatitudeBy(10);
       coordinates.modifyHeightBy(2);
     }
