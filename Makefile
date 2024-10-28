@@ -2,6 +2,7 @@ NAME = avaj-launcher
 
 SRC_DIR = src
 BUILD_DIR = build
+OUTPUT_FILE = simulation.txt
 
 SRC = $(wildcard $(SRC_DIR)/*/*.java)
 
@@ -24,7 +25,7 @@ run:
 	$(J) $(JFLAGS) simulator.Simulator scenarios/1.txt
 
 clean:
-	$(RM) $(BUILD_DIR)
+	$(RM) $(BUILD_DIR) $(OUTPUT_FILE)
 
 re: clean all
 
